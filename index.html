@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SuperForm</title>
+        <link rel="stylesheet" href="sass/style.css">
+    </head>
+    <body>
+        
+        <div id="app">
+            
+            <h1>Регистрация пациента</h1>
+            <h4>Поля ввода, обозначенные звёздочкой ( * ) - обязательные.</h4>
+            <h2><input v-model="HelloText">{{ HelloText }}</h2>
+            
+            <!-- <form action=""> -->
+                <div class="container">
+                    <h3>Укажите основные данные</h3>
+                
+                    <div id="human" class="inForm">
+                        <div class="form-group">
+                            <label for="Lname">Фамилия*</label>
+                            <span> {{Lname}}</span>
+                            <input type="text" name="Lname"  placeholder="Введите фамилию" v-model="Lname">
+                        </div>
+                        <div class="form-group">
+                            <label for="Fname">Имя*</label>
+                            <input type="text" name="Fname" id="Fname" placeholder="Введите имя" v-model="Fname">
+                        </div>
+                        <div class="form-group">
+                            <label for="fatherName">Отчество</label>
+                            <input type="text" name="fatherName" id="fatherName" placeholder="Введите отчество" v-model="fatherName">
+                        </div>
+                        <div class="form-group">
+                            <label for="old">Дата рождения*</label>
+                            <input type="text" name="old" id="old" placeholder="дд.мм.гггг" v-model="old">
+                        </div>
+                        <div class="form-group">
+                            <label for="telNum">Номер телефона*</label>
+                            <input type="tel" name="telNum" id="telNum" placeholder="+7-xxx-xxx-xx-xx" v-model="telNum">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Пол</label>
+                            <input type="text" name="gender" id="gender" placeholder="Мужской или Женский" v-model="gender">
+                        </div>
+                        <div class="form-group" >
+                            <label for="choose" id="chooseLbl" title="Для выбора нескольких зажмите клавишу 'ctrl'">Группа клиентов* <br> <small>Выберите несколько</small>
+                            </label>
+                            <select name="choose" id="multis" multiple scrolling="no" v-model="choose">
+                                <option value="VIP">VIP</option>
+                                <option value="Проблемные">Проблемные</option>
+                                <option value="ОМС">ОМС</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor">Лечащий врач:</label>
+                            <select name="doctor" id="doctor" v-model="doctor">
+                                <option value="Иванов">Иванов</option>
+                                <option value="Захаров">Захаров</option>
+                                <option value="Чернышова">Чернышова</option>
+                            </select>
+                        </div>
+                        <div class="form-group NoSms">
+                            <label for="noSms" title="Кликните на белый квадрат, если не отправлять.">Не отправлять СМС</label>
+                            <input type="checkbox" name="no sms" id="noSms" title="Кликните на белый квадрат, если не отправлять." v-model="noSms">
+                        </div>
+                    </div>
+                    <h3>Укажите  местоположение</h3>
+                    <div id="adress" class="inForm">
+                        <div class="form-group">
+                            <label for="index">Введите индекс</label>
+                            <a href="https://indexphone.ru/" target="_blank"><img src="images/question.png" alt="question index logo" title="Нажмите, если не знаете свой индекс" width="10px"></a>
+                            <input type="text" name="index" id="" placeholder="Введите Индекс"> 
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Страна</label>
+                            <input type="text" name="country" id="" placeholder="Укажите страну">
+                        </div>
+                        <div class="form-group">
+                            <label for="area">Область</label>
+                            <input type="text" name="area" id="" placeholder="Укажите область">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Город*</label>
+                            <input type="text" name="city" id="" placeholder="Укажите город">
+                        </div>
+                        <div class="form-group">
+                            <label for="street">Улица</label>
+                            <input type="text" name="street" id="" placeholder="Укажите улица">
+                        </div>
+                        <div class="form-group">
+                            <label for="house">Дом</label>
+                            <input type="text" name="house" id="" placeholder="Укажите номер дома">
+                        </div> 
+                    </div>
+                    <h3>Укажите данные паспорта</h3>
+                    <div id="pasport" class="inForm" >
+                        <div class="form-group">
+                            <label for="passport">Тип документа*</label>
+                            <select name="" id="passport">
+                                <option value="">Паспорт</option>
+                                <option value="">Свидетельство о рождении</option>
+                                <option value="">Вод. удостоверение</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="serial">Серия</label>
+                            <input type="text" name="serial" id="" placeholder="Серия">
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Номер</label>
+                            <input type="text" name="number" id="" placeholder="Номер">
+                        </div>
+                        <div class="form-group">
+                            <label for="who">Кем выдан</label>
+                            <input type="text" name="who" id="" placeholder="Кем выдан">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Дата выдачи*</label>
+                            <input type="text" name="date" id="" placeholder="Дата выдачи">
+                        </div>
+                        <div class="form-group submit">
+                            <input type="submit" value="Отправить" id="submit">
+                        </div>
+                    </div>
+                    
+                </div>
+            <!-- </form> -->
+            
+            <hr>
+            <!-- <section id="test">
+                <form id="app" @submit="checkForm" action="" method="">
+
+                    <p v-if="errors.length">
+                        <b>Пожалуйста исправьте указанные ошибки:</b>
+                        <ul>
+                        <li v-for="error in errors">{{ error }}</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <label for="name">Имя</label>
+                        <input id="name" v-model="name" type="text" name="name"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="age">Возраст</label>
+                        <input id="age" v-model="age" type="number" name="age" min="0"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="movie">Любимый фильм</label>
+                        <select id="movie" v-model="movie" name="movie">
+                            <option>Star Wars</option>
+                            <option>Vanilla Sky</option>
+                            <option>Atomic Blonde</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <input type="submit" value="Отправить">
+                    </p>
+
+                </form>
+            </section> -->
+        </div>
+        <script type="text/javascript" src="js/vue.js"></script>
+        <script type="text/javascript" src="js/validators.min.js"></script>
+        <script type="text/javascript" src="js/vuelidate.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>
